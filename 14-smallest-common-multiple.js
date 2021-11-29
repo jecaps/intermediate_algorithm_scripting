@@ -21,12 +21,13 @@ function numRanges(arr) {
 // Create function that finds the least common multiples of a range of numbers
 
 function smallestCommons(arr) {
-  const initialArray = numRanges(arr);
+  let initialArray = numRanges(arr);
   let newArray = [...initialArray];
 
   while (newArray.every((n) => n == newArray[0]) == false) {
-    let min = newArray.indexOf(Math.min(...newArray));
-    newArray[min] += initialArray[min];
+    // to check if all numbers in the array are equal
+    let min = newArray.indexOf(Math.min(...newArray)); // create variable that finds the index of the smallest number of the array
+    newArray[min] += initialArray[min]; // add numbers from the initial and new array at the same index
   }
 
   return newArray[0];
